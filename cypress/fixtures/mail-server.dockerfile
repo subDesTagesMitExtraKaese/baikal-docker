@@ -1,4 +1,4 @@
-FROM python:3.14-alpine
+FROM python:3.15-alpine
 
 RUN pip install aiosmtpd==1.4.6 aiohttp==3.14.5
 

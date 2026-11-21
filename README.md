@@ -8,14 +8,14 @@ For more details, see [ckulka/baikal-docker (GitHub)](https://github.com/ckulka/
 
 ## Supported tags
 
-This fork publishes a single nginx-based image with PHP 8.2 to the Forgejo container registry on every push to `master`:
+This fork publishes a single nginx-based image with PHP 8.5 to the Forgejo container registry on every push to `master`:
 
 ```bash
 git.justprojects.de/subdestagesmitextrakaese/baikal-docker:<tag>
 ```
 
-- `latest`, `nginx`, `nginx-php8.2` are re-builds of the current Dockerfile to include the latest base images with the most recent updates
-- `0.10.1`, `0.10.1-nginx`, `0.10.1-nginx-php8.2` are builds of Baikal 0.10.1
+- `latest` and `nginx` are re-builds of the current Dockerfile to include the latest base images with the most recent updates
+- `0.13.0` and `0.13.0-nginx` are builds of Baikal 0.13.0
 
 Tags follow the same version naming scheme as [Baikal](http://sabre.io/baikal/) themselves.
 
@@ -78,6 +78,6 @@ You can find more installation and configuration guides here:
 
 ## Image
 
-The image is based on [nginx](https://www.nginx.com/) and uses the [official nginx image](https://hub.docker.com/_/nginx/). PHP 8.2 runs as PHP-FPM behind nginx.
+The image is based on [nginx](https://www.nginx.com/) and uses the [official nginx image](https://hub.docker.com/_/nginx/). PHP 8.5 runs as PHP-FPM behind nginx.
 
 It listens on port 80 and serves plain HTTP. To use HTTPS, terminate TLS in a reverse proxy such as Traefik; see the [SSL Certificate Guide](https://git.justprojects.de/subDesTagesMitExtraKaese/baikal-docker/src/branch/master/docs/ssl-certificates-guide.md).

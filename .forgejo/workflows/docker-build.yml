@@ -31,7 +31,7 @@ jobs:
           echo "BAIKAL_VERSION=${version}" >> "${GITHUB_ENV}"
 
           repository="$(printf '%s' "${GITHUB_REPOSITORY}" | tr '[:upper:]' '[:lower:]')"
-          tags="$(printf '%s\n' latest nginx nginx-php8.2 "${version}" "${version}-nginx" "${version}-nginx-php8.2" \
+          tags="$(printf '%s\n' latest nginx "${version}" "${version}-nginx" \
             | sed "s|^|${REGISTRY}/${repository}:|")"
 
           {
