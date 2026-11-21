@@ -1,13 +1,12 @@
-# Docker Compose file for a Baikal server with Let's Encrypt using Traefik (https://docs.traefik.io/)
+# Docker Compose file for a Baikal server with Let's Encrypt using Traefik (https://doc.traefik.io/traefik/)
 #
 # The acme.json file must exist before you run docker compose up.
 #
-# 1. Adjust host in line 17
+# 1. Adjust host in line 16
 # 2. Create acme.json: touch /etc/ssl/private/acme.json
 # 3. Adjust file permissions: chmod 600 /etc/ssl/private/acme.json
 # 4. Start the stack: docker compose -f docker compose.ssl.yaml up
 
-version: "2"
 services:
   baikal:
     image: ckulka/baikal:nginx
@@ -25,9 +24,9 @@ services:
       - config:/var/www/baikal/config
       - data:/var/www/baikal/Specific
 
-  # See https://doc.traefik.io/traefik/v2.10/
+  # See https://doc.traefik.io/traefik/v3.7/
   traefik:
-    image: traefik:2.10
+    image: traefik:v3.7
     restart: always
     ports:
       - 80:80
@@ -39,21 +38,22 @@ services:
       - type: bind
         source: /var/run/docker.sock
         target: /var/run/docker.sock
+        read_only: true
     command:
-      # See https://doc.traefik.io/traefik/v2.10/observability/access-logs/
+      # See https://doc.traefik.io/traefik/v3.7/observability/access-logs/
       - --accesslog
-      # See https://doc.traefik.io/traefik/v2.10/routing/entrypoints/#redirection
+      # See https://doc.traefik.io/traefik/v3.7/routing/entrypoints/#redirection
       - --entrypoints.web.address=:80
       - --entrypoints.websecure.address=:443
       - --entrypoints.web.http.redirections.entryPoint.to=websecure
       - --entrypoints.web.http.redirections.entryPoint.scheme=https
-      # See https://doc.traefik.io/traefik/v2.10/https/acme/
+      # See https://doc.traefik.io/traefik/v3.7/https/acme/
       - --certificatesresolvers.letsencrypt.acme.email=your-email@example.com
       - --certificatesresolvers.letsencrypt.acme.storage=/acme.json
       - --certificatesresolvers.letsencrypt.acme.caserver=https://acme-staging-v02.api.letsencrypt.org/directory
       - --certificatesresolvers.letsencrypt.acme.tlschallenge
 
-      # https://doc.traefik.io/traefik/v2.10/providers/docker/
+      # https://doc.traefik.io/traefik/v3.7/providers/docker/
       - --providers.docker
       - --providers.docker.exposedByDefault=false
 

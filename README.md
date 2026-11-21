@@ -1,6 +1,6 @@
 # Baikal
 
-[![Latest images](https://github.com/ckulka/baikal-docker/actions/workflows/build-latest.yaml/badge.svg)](https://github.com/ckulka/baikal-docker/actions/workflows/build-latest.yaml) [![Experimental images](https://github.com/ckulka/baikal-docker/actions/workflows/build-experimental.yaml/badge.svg)](https://github.com/ckulka/baikal-docker/actions/workflows/build-experimental.yaml) ![Docker Pulls](https://img.shields.io/docker/pulls/ckulka/baikal) ![Docker Architectures](https://img.shields.io/badge/arch-amd64%20%7C%20arm32v7%20%7C%20arm64v8%20%7C%20i386-informational)
+[![Build](https://git.justprojects.de/subDesTagesMitExtraKaese/baikal-docker/actions/workflows/docker-build.yml/badge.svg)](https://git.justprojects.de/subDesTagesMitExtraKaese/baikal-docker/actions/workflows/docker-build.yml) ![Docker Architectures](https://img.shields.io/badge/arch-amd64%20%7C%20arm32v7%20%7C%20arm64v8%20%7C%20i386-informational)
 
 This dockerfile provides a ready-to-go [Baikal server](http://sabre.io/baikal/).
 
@@ -8,12 +8,20 @@ For more details, see [ckulka/baikal-docker (GitHub)](https://github.com/ckulka/
 
 ## Supported tags and respective Dockerfile links
 
-Tags without a version are [weekly re-builds](https://github.com/ckulka/baikal-docker/actions/workflows/build-latest.yaml) to include the latest base image with the most recent updates:
+This fork publishes the images to the Forgejo container registry on every push to `master`:
 
-- `latest` and `apache` are re-builds of the latest `*-apache` version
-- `apache-php8.2` are re-builds of the latest `*-apache-php8.2` version
-- `nginx` are re-builds of the latest `*-nginx` version
-- `nginx-php8.2` are re-builds of the latest `*-nginx-php8.2` version
+```bash
+git.justprojects.de/subdestagesmitextrakaese/baikal-docker:<tag>
+```
+
+Tags without a version are [re-builds](https://git.justprojects.de/subDesTagesMitExtraKaese/baikal-docker/actions/workflows/docker-build.yml) of the current Dockerfiles to include the latest base images with the most recent updates:
+
+- `latest` and `apache` are re-builds of the `apache` variant
+- `apache-php8.2` and `php8.2` are re-builds of the `apache-php8.2` variant
+- `nginx` are re-builds of the `nginx` variant
+- `nginx-php8.2` are re-builds of the `nginx-php8.2` variant
+
+The same tags are also published with the Baikal version as prefix, e.g. `0.10.1`, `0.10.1-apache`, `0.10.1-apache-php8.2`, `0.10.1-php8.2`, `0.10.1-nginx` and `0.10.1-nginx-php8.2`.
 
 I follow the same version naming scheme as [Baikal](http://sabre.io/baikal/) themselves.
 
@@ -37,13 +45,13 @@ For earlier versions all the way back to version 0.2.7, please search in the [ta
 ## Quick reference
 
 - **Where to file issues**:
-  [https://github.com/ckulka/baikal-docker/issues](https://github.com/ckulka/baikal-docker/issues)
+  [https://git.justprojects.de/subDesTagesMitExtraKaese/baikal-docker/issues](https://git.justprojects.de/subDesTagesMitExtraKaese/baikal-docker/issues)
 - **Supported architectures** ([more info](https://github.com/docker-library/official-images#architectures-other-than-amd64)):
   `amd64`, `arm32v7`, `arm64v8`, `i386`
 - **Image updates**:
-  [PRs for ckulka/baikal-docker](https://github.com/ckulka/baikal-docker/pulls)
+  [PRs for subDesTagesMitExtraKaese/baikal-docker](https://git.justprojects.de/subDesTagesMitExtraKaese/baikal-docker/pulls)
 - **Source of this description**:
-  [https://github.com/ckulka/baikal-docker](https://github.com/ckulka/baikal-docker)
+  [https://git.justprojects.de/subDesTagesMitExtraKaese/baikal-docker](https://git.justprojects.de/subDesTagesMitExtraKaese/baikal-docker)
 
 ## What is Baikal?
 
@@ -113,9 +121,6 @@ The `BAIKAL_SERVERNAME` environment variable is used to set the global `ServerNa
 
 The `BAIKAL_SERVERALIAS` environment variable is used to set the `ServerAlias` directive of the `VirtualHost`s, e.g. `dav.example.org dav.example.com`. For more details, see [Apache Core Features: ServerAlias Directive](https://httpd.apache.org/docs/2.4/mod/core.html#serveralias).
 
-### `ckulka/baikal:experimental`
-
-This image has the latest code from the source repository [ckulka/baikal-docker](https://github.com/ckulka/baikal-docker), mainly used for testing before a version is released. Use this at your own risk.
 
 ### `ckulka/baikal:nginx`
 
