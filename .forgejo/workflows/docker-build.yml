@@ -15,18 +15,6 @@ env:
 jobs:
   build:
     runs-on: docker
-    strategy:
-      fail-fast: false
-      matrix:
-        include:
-          - dockerfile: apache.dockerfile
-            tags: latest,apache,VERSION,VERSION-apache
-          - dockerfile: apache-php8.2.dockerfile
-            tags: apache-php8.2,php8.2,VERSION-apache-php8.2,VERSION-php8.2
-          - dockerfile: nginx.dockerfile
-            tags: nginx,VERSION-nginx
-          - dockerfile: nginx-php8.2.dockerfile
-            tags: nginx-php8.2,VERSION-nginx-php8.2
 
     steps:
       - name: Check out repository
@@ -39,13 +27,12 @@ jobs:
 
       - name: Set Baikal version and image tags
         run: |
-          version="$(sed -n 's/^ENV VERSION //p' ${{ matrix.dockerfile }})"
+          version="$(sed -n 's/^ENV VERSION //p' nginx.dockerfile)"
           echo "BAIKAL_VERSION=${version}" >> "${GITHUB_ENV}"
 
           repository="$(printf '%s' "${GITHUB_REPOSITORY}" | tr '[:upper:]' '[:lower:]')"
-          tags="$(printf '%s' '${{ matrix.tags }}' \
-            | tr ',' '\n' \
-            | sed "s/VERSION/${version}/g; s|^|${REGISTRY}/${repository}:|")"
+          tags="$(printf '%s\n' latest nginx nginx-php8.2 "${version}" "${version}-nginx" "${version}-nginx-php8.2" \
+            | sed "s|^|${REGISTRY}/${repository}:|")"
 
           {
             echo "IMAGE_TAGS<<EOF"
@@ -72,7 +59,7 @@ jobs:
       - name: Build and push image
         uses: docker/build-push-action@v6
         with:
-          file: ${{ matrix.dockerfile }}
+          file: nginx.dockerfile
           platforms: linux/amd64,linux/arm/v7,linux/arm64/v8,linux/386
           push: true
           tags: ${{ env.IMAGE_TAGS }}

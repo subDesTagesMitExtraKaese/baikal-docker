@@ -1,9 +1,9 @@
 # Docker Compose file for a Baikal server
-# See https://github.com/ckulka/baikal-docker/blob/master/docs/email-guide.md
+# See https://git.justprojects.de/subDesTagesMitExtraKaese/baikal-docker/src/branch/master/docs/email-guide.md
 
 services:
   baikal:
-    image: ckulka/baikal:nginx
+    image: git.justprojects.de/subdestagesmitextrakaese/baikal-docker:latest
     restart: always
     environment:
       MSMTPRC: |

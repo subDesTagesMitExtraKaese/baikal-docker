@@ -1,5 +1,7 @@
 # Unraid Docker Baikal Installation Guide
 
+**Fork note** – These instructions install the upstream `ckulka/baikal` image from Docker Hub. This fork publishes its own image at `git.justprojects.de/subdestagesmitextrakaese/baikal-docker:latest`; add it as a custom repository in Unraid to use it.
+
 If you would like to roll your own Baikal installation within [Unraid](https://unraid.net/) straight from Docker Hub, this is the guide for you. Many thanks to [@Joshndroid](https://github.com/Joshndroid) for contributing this guide.
 
 ## Prerequisites

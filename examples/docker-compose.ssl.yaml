@@ -9,7 +9,7 @@
 
 services:
   baikal:
-    image: ckulka/baikal:nginx
+    image: git.justprojects.de/subdestagesmitextrakaese/baikal-docker:latest
     restart: always
     labels:
       traefik.enable: true
