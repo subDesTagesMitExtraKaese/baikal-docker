@@ -12,13 +12,13 @@ services:
       - data:/var/www/baikal/Specific
 
   db:
-    image: mariadb:10
+    image: mariadb:12.3
     restart: always
     environment:
-      MYSQL_ROOT_PASSWORD: adalovelace
-      MYSQL_DATABASE: baikal
-      MYSQL_USER: baikal
-      MYSQL_PASSWORD: ilovecookies
+      MARIADB_ROOT_PASSWORD: adalovelace
+      MARIADB_DATABASE: baikal
+      MARIADB_USER: baikal
+      MARIADB_PASSWORD: ilovecookies
     volumes:
       - db:/var/lib/mysql
 

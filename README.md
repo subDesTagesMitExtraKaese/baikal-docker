@@ -121,7 +121,6 @@ The `BAIKAL_SERVERNAME` environment variable is used to set the global `ServerNa
 
 The `BAIKAL_SERVERALIAS` environment variable is used to set the `ServerAlias` directive of the `VirtualHost`s, e.g. `dav.example.org dav.example.com`. For more details, see [Apache Core Features: ServerAlias Directive](https://httpd.apache.org/docs/2.4/mod/core.html#serveralias).
 
-
 ### `ckulka/baikal:nginx`
 
 This image relies on [nginx](https://www.nginx.com/) and uses the [official nginx image](https://hub.docker.com/_/nginx/).
