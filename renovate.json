@@ -3,6 +3,11 @@
   "extends": ["config:recommended", ":pinVersions", "docker:pinDigests"],
   "packageRules": [
     {
+      "description": "Keep the supported Node.js engine range",
+      "matchDepTypes": ["engines"],
+      "enabled": false
+    },
+    {
       "description": "Auto-merge minor and patch updates once checks pass",
       "matchUpdateTypes": ["minor", "patch"],
       "automerge": true
