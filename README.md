@@ -1,6 +1,6 @@
 # Baikal
 
-[![Build](https://git.justprojects.de/subDesTagesMitExtraKaese/baikal-docker/actions/workflows/docker-build.yml/badge.svg)](https://git.justprojects.de/subDesTagesMitExtraKaese/baikal-docker/actions/workflows/docker-build.yml) ![Docker Architectures](https://img.shields.io/badge/arch-amd64%20%7C%20arm32v7%20%7C%20arm64v8%20%7C%20i386-informational)
+[![Build](https://git.justprojects.de/subDesTagesMitExtraKaese/baikal-docker/actions/workflows/docker-build.yml/badge.svg)](https://git.justprojects.de/subDesTagesMitExtraKaese/baikal-docker/actions/workflows/docker-build.yml) ![Docker Architectures](https://img.shields.io/badge/arch-amd64%20%7C%20arm32v7%20%7C%20arm64v8-informational)
 
 This dockerfile provides a ready-to-go [Baikal server](http://sabre.io/baikal/).
 
@@ -19,14 +19,14 @@ git.justprojects.de/subdestagesmitextrakaese/baikal-docker:<tag>
 
 Tags follow the same version naming scheme as [Baikal](http://sabre.io/baikal/) themselves.
 
-All tags support multiple architectures, e.g. `amd64`, `arm32v7`, `arm64v8` and `i386`.
+All tags support multiple architectures, e.g. `amd64`, `arm32v7` and `arm64v8`.
 
 ## Quick reference
 
 - **Where to file issues**:
   [https://git.justprojects.de/subDesTagesMitExtraKaese/baikal-docker/issues](https://git.justprojects.de/subDesTagesMitExtraKaese/baikal-docker/issues)
 - **Supported architectures** ([more info](https://github.com/docker-library/official-images#architectures-other-than-amd64)):
-  `amd64`, `arm32v7`, `arm64v8`, `i386`
+  `amd64`, `arm32v7`, `arm64v8`
 - **Image updates**:
   [PRs for subDesTagesMitExtraKaese/baikal-docker](https://git.justprojects.de/subDesTagesMitExtraKaese/baikal-docker/pulls)
 - **Source of this description**:
